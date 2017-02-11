@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Custom Desktop Design</title>
+	<style type="text/css">
+		.container{
+			width: 1170px;
+			margin: 0px auto;
+		}
+		/*Desktop*/
+		.desktop{
+			width: 50%;
+			float: left;
+			position: relative;
+			min-height: 1px;
+			padding: 15px;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box
+		}
+		.desktop-top-outer{
+			padding: 15px;
+			background-color: #020204;
+			border-radius: 10px 10px 0px 0px ;
+		}
+		.desktop-top-inner{
+			width: 100%;
+			padding-top: 56.25%;
+			position: relative;
+			/*background-image: url('images/work/work-7.jpg');*/
+			background-position: 0 0;
+			background-size: cover;
+			-webkit-transition: all 5s linear;
+			transition: all 5s linear;
+			cursor: pointer;
+		}
+		.desktop-top-inner:hover{
+			background-position: 0 100%;
+		}
+		.desktop-bottom{
+			width: 100%;
+		    height: 20px;
+		    margin-bottom: 60px; /*minimum desktop bottom image height*/
+		    border-radius: 0px 0px 5px 5px;
+		    background-color: #CCCDD1;
+		    z-index: 1;
+		    position: relative;
+		}
+		.desktop-bottom::after{
+			content: '';
+			position: absolute;
+			width: 160px;
+			height: 60px;
+			top: 19px;
+			left: 50%;
+			transform : translateX(-50%);
+			background-image: url(images/desktop-bottom.png);
+			background-size: 100% 100%;
+		}
+		/*Xtra Small Device*/
+		@media (max-width: 360px){
+			.container{
+				width: 100%;
+			}
+			.desktop{
+				width: 100%;
+			}
+			.desktop-bottom::after{
+				width: 100px;
+				height: 40px;
+			}
+		}
+		/*Small Device*/
+		@media (min-width: 767px) and (max-width: 980px){
+			.container{
+				width: 750px;
+			}
+			.desktop-bottom::after{
+				width: 110px;
+				height: 45px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="desktop">
+			<div class="desktop-top-outer">
+				<div class="desktop-top-inner">
+					<img src="images/desktop-bg.jpg" alt="themeforest-big" class="img-responsive">
+				</div>
+			</div>
+			<div class="desktop-bottom"></div>
+		</div>
+		<div class="desktop">
+			<div class="desktop-top-outer">
+				<div class="desktop-top-inner">
+					<img src="images/desktop-bg.jpg" alt="themeforest-big" class="img-responsive">
+				</div>
+			</div>
+			<div class="desktop-bottom"></div>
+		</div>
+		<div class="desktop">
+			<div class="desktop-top-outer">
+				<div class="desktop-top-inner">
+					<img src="images/desktop-bg.jpg" alt="themeforest-big" class="img-responsive">
+				</div>
+			</div>
+			<div class="desktop-bottom"></div>
+		</div>
+		<div class="desktop">
+			<div class="desktop-top-outer">
+				<div class="desktop-top-inner">
+					<img src="images/desktop-bg.jpg" alt="themeforest-big" class="img-responsive">
+				</div>
+			</div>
+			<div class="desktop-bottom"></div>
+		</div>
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+		'use strict';
+		var $desktop = $('.desktop-top-inner'),
+			nOfItems = $desktop.length;
+
+		for (var i = 0; i < nOfItems; i++) {
+			var bgImage = $desktop.eq(i).find('img');
+			var igmSource = bgImage.attr('src');
+
+			bgImage.hide();
+
+			$desktop.eq(i).css({
+				backgroundImage : "url('"+igmSource+"')"
+			});
+		}
+	</script>
+</body>
+</html>
